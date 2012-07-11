@@ -1,0 +1,37 @@
+<%= form_for(@conta_pagar) do |f| %>
+  <% if @conta_pagar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@conta_pagar.errors.count, "error") %> prohibited this conta_pagar from being saved:</h2>
+
+      <ul>
+      <% @conta_pagar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </div>
+  <div class="field">
+    <%= f.label :data_vencimento %><br />
+    <%= f.date_select :data_vencimento %>
+  </div>
+  <div class="field">
+    <%= f.label :pessoa_pagar %><br />
+    <%= f.text_field :pessoa_pagar %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<h1>Listing conta_pagars</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Descricao</th>
+    <th>Data vencimento</th>
+    <th>Pessoa pagar</th>
+    <th>Valor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @conta_pagars.each do |conta_pagar| %>
+  <tr>
+    <td><%= conta_pagar.nome %></td>
+    <td><%= conta_pagar.descricao %></td>
+    <td><%= conta_pagar.data_vencimento %></td>
+    <td><%= conta_pagar.pessoa_pagar %></td>
+    <td><%= conta_pagar.valor %></td>
+    <td><%= link_to 'Show', conta_pagar %></td>
+    <td><%= link_to 'Edit', edit_conta_pagar_path(conta_pagar) %></td>
+    <td><%= link_to 'Destroy', conta_pagar, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Conta pagar', new_conta_pagar_path %>
