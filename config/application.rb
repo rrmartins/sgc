@@ -49,5 +49,7 @@ module Sgc
     config.assets.initialize_on_precompile = false
 
     config.assets.compile = true
+
+    config.assets.precompile += ['bootstrap-responsive.css', 'bootstrap-responsive.min.css', 'bootstrap.css', 'bootstrap.min.css']
   end
 end
