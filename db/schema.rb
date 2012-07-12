@@ -18,16 +18,16 @@ ActiveRecord::Schema.define(:version => 20120402162127) do
     t.date     "data_vencimento"
     t.integer  "pessoa_pagar_id"
     t.float    "valor"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "conta_pagars", ["pessoa_pagar_id"], :name => "index_conta_pagars_on_pessoa_pagar_id"
 
   create_table "pessoa_pagars", :force => true do |t|
     t.string   "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
