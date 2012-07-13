@@ -1,6 +1,8 @@
-<h1>Editing pessoa_pagar</h1>
+<div class="hero-unit">
+	<h1>Editar Pessoa <%= @pessoa_pagar.nome %></h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Show', @pessoa_pagar %> |
-<%= link_to 'Back', pessoa_pagars_path %>
+	<%= link_to 'Mostar', @pessoa_pagar, :class => "btn" %> |
+	<%= link_to 'Voltar', pessoa_pagars_path, :class => "btn" %>
+</div>

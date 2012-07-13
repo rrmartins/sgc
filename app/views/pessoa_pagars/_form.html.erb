@@ -12,10 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nome %><br />
+    <%= f.label :nome %>
     <%= f.text_field :nome %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
   </div>
+
+  <div class="field">
+    <%= f.label :tel %>
+    <%= f.text_field :tel %>
+  </div>
+
+  <button class="btn" type="submit">
+    Salvar
+  </button>
+  
 <% end %>

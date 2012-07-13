@@ -1,23 +1,25 @@
-<h1>Listing pessoa_pagars</h1>
+<div class="hero-unit">
+  <h1>Lista de Pessoas à pagar!</h1>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<% @pessoa_pagars.each do |pessoa_pagar| %>
-  <tr>
-    <td><%= pessoa_pagar.nome %></td>
-    <td><%= link_to 'Show', pessoa_pagar %></td>
-    <td><%= link_to 'Edit', edit_pessoa_pagar_path(pessoa_pagar) %></td>
-    <td><%= link_to 'Destroy', pessoa_pagar, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <% @pessoa_pagars.each do |pessoa_pagar| %>
+    <tr>
+      <td><%= pessoa_pagar.nome %></td>
+      <td><%= link_to 'Mostrar', pessoa_pagar, :class => "btn" %></td>
+      <td><%= link_to 'Editar', edit_pessoa_pagar_path(pessoa_pagar), :class => "btn" %></td>
+      <td><%= link_to 'Deletar', pessoa_pagar, :confirm => 'Are you sure?', :method => :delete, :class => "btn" %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<br />
+  <br />
 
-<%= link_to 'New Pessoa pagar', new_pessoa_pagar_path %>
+  <%= link_to 'Cadastrar Nova Pessoa', new_pessoa_pagar_path, :class => "btn" %>
+</div>

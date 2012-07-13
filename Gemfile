@@ -21,6 +21,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'omniauth-facebook'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -34,6 +36,3 @@ gem 'jquery-rails'
 # gem 'ruby-debug'
 
 gem 'railties'
-
-
-# git init & git add . & git commit -m "init"

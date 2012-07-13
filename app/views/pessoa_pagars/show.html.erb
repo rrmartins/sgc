@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="hero-unit">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Nome:</b>
-  <%= @pessoa_pagar.nome %>
-</p>
+	<p>
+	  <b>Nome:</b>
+	  <%= @pessoa_pagar.nome %>
+	</p>
 
-
-<%= link_to 'Edit', edit_pessoa_pagar_path(@pessoa_pagar) %> |
-<%= link_to 'Back', pessoa_pagars_path %>
+	<%= link_to 'Editar', edit_pessoa_pagar_path(@pessoa_pagar), :class => "btn" %> |
+	<%= link_to 'Voltar', pessoa_pagars_path, :class => "btn" %>
+</div>
