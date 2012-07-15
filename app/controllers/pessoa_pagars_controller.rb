@@ -2,7 +2,7 @@ class PessoaPagarsController < ApplicationController
   # GET /pessoa_pagars
   # GET /pessoa_pagars.json
   def index
-    @pessoa_pagars = PessoaPagar.all
+    @pessoa_pagars = PessoaPagar.find(:all, :conditions => " user_id = #{current_user.id} ")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +25,7 @@ class PessoaPagarsController < ApplicationController
   # GET /pessoa_pagars/new.json
   def new
     @pessoa_pagar = PessoaPagar.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @pessoa_pagar }
@@ -41,7 +41,7 @@ class PessoaPagarsController < ApplicationController
   # POST /pessoa_pagars.json
   def create
     @pessoa_pagar = PessoaPagar.new(params[:pessoa_pagar])
-
+    @pessoa_pagar.user_id = current_user.id
     respond_to do |format|
       if @pessoa_pagar.save
         format.html { redirect_to @pessoa_pagar, :notice => 'Pessoa pagar was successfully created.' }

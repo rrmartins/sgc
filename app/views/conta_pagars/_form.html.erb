@@ -24,14 +24,15 @@
     <%= f.date_select :data_vencimento %>
   </div>
   <div class="field">
-    <%= f.label :pessoa_pagar %><br />
-    <%= f.text_field :pessoa_pagar %>
+    <%= f.label :pessoa_pagar_id %><br />
+    <%= f.select :pessoa_pagar_id, @pessoa_pagar.map {|r| [r.nome, r.id]} %>
   </div>
   <div class="field">
     <%= f.label :valor %><br />
     <%= f.text_field :valor %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button class="btn" type="submit">
+    Salvar
+  </button>
+  
 <% end %>

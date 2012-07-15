@@ -1,30 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="hero-unit">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Nome:</b>
-  <%= @conta_pagar.nome %>
-</p>
+  <p>
+    <b>Nome:</b>
+    <%= @conta_pagar.nome %>
+  </p>
 
-<p>
-  <b>Descricao:</b>
-  <%= @conta_pagar.descricao %>
-</p>
+  <p>
+    <b>Descricao:</b>
+    <%= @conta_pagar.descricao %>
+  </p>
 
-<p>
-  <b>Data vencimento:</b>
-  <%= @conta_pagar.data_vencimento %>
-</p>
+  <p>
+    <b>Data vencimento:</b>
+    <%= @conta_pagar.data_vencimento.strftime("%d/%m/%Y") %>
+  </p>
 
-<p>
-  <b>Pessoa pagar:</b>
-  <%= @conta_pagar.pessoa_pagar %>
-</p>
+  <p>
+    <b>Pessoa pagar:</b>
+    <%= @conta_pagar.pessoa_pagar.nome %>
+  </p>
 
-<p>
-  <b>Valor:</b>
-  <%= @conta_pagar.valor %>
-</p>
+  <p>
+    <b>Valor:</b>
+    <%= @conta_pagar.valor %>
+  </p>
 
 
-<%= link_to 'Edit', edit_conta_pagar_path(@conta_pagar) %> |
-<%= link_to 'Back', conta_pagars_path %>
+  <%= link_to 'Editar', edit_conta_pagar_path(@conta_pagar), :class => "btn" %> |
+  <%= link_to 'Voltar', conta_pagars_path, :class => "btn" %>
+</div>

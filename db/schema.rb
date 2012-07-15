@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713014102) do
+ActiveRecord::Schema.define(:version => 20120714233338) do
 
   create_table "conta_pagars", :force => true do |t|
     t.string   "nome"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120713014102) do
     t.float    "valor"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "user_id"
   end
 
   add_index "conta_pagars", ["pessoa_pagar_id"], :name => "index_conta_pagars_on_pessoa_pagar_id"
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20120713014102) do
     t.datetime "updated_at", :null => false
     t.string   "email"
     t.string   "tel"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
