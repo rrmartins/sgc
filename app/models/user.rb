@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
 	has_many :pessoa_pagars
 	has_many :conta_pagars
+	has_many :pessoa_recebers
+	has_many :conta_recebers
 
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
 

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  descricao: MyString
+  data_vencimento: 2012-07-15
+  pessoa_receber: 
+  valor: 1.5
+  user_id: 1
+
+two:
+  nome: MyString
+  descricao: MyString
+  data_vencimento: 2012-07-15
+  pessoa_receber: 
+  valor: 1.5
+  user_id: 1

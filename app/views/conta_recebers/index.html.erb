@@ -1,0 +1,35 @@
+<div class="hero-unit">
+    <h1>Listar Contas à Receber</h1>
+
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Descricao</th>
+        <th>Data vencimento</th>
+        <th>Pessoa receber</th>
+        <th>Valor</th>
+        <th>User</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @conta_recebers.each do |conta_receber| %>
+      <tr>
+        <td><%= conta_receber.nome %></td>
+        <td><%= conta_receber.descricao %></td>
+        <td><%= conta_receber.data_vencimento %></td>
+        <td><%= conta_receber.pessoa_receber.nome %></td>
+        <td><%= conta_receber.valor %></td>
+        <td><%= conta_receber.user_id %></td>
+        <td><%= link_to 'Mostrar', conta_receber, :class => "btn" %></td>
+        <td><%= link_to 'Editar', edit_conta_receber_path(conta_receber), :class => "btn" %></td>
+        <td><%= link_to 'Deletar', conta_receber, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn" %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+
+    <%= link_to 'Nova Conta Receber', new_conta_receber_path, :class => "btn" %>
+</div>

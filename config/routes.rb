@@ -1,5 +1,9 @@
 Sgc::Application.routes.draw do
 
+  resources :conta_recebers
+
+  resources :pessoa_recebers
+
   resources :conta_pagars
 
   resources :pessoa_pagars

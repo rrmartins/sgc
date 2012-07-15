@@ -1,0 +1,22 @@
+<div class="hero-unit">
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <b>Nome:</b>
+	  <%= @pessoa_receber.nome %>
+	</p>
+
+	<p>
+	  <b>Email:</b>
+	  <%= @pessoa_receber.email %>
+	</p>
+
+	<p>
+	  <b>Tel:</b>
+	  <%= @pessoa_receber.tel %>
+	</p>
+
+
+	<%= link_to 'Edit', edit_pessoa_receber_path(@pessoa_receber), :class => "btn" %> |
+	<%= link_to 'Voltar', pessoa_recebers_path, :class => "btn" %>
+</div>

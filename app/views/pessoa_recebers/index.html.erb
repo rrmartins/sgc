@@ -1,0 +1,29 @@
+<div class="hero-unit">
+	<h1>Listar Pessoas à Receber</h1>
+
+	<table>
+  		<tr>
+    		<th>Nome</th>
+    		<th>Email</th>
+    		<th>Tel</th>
+    		<th></th>
+    		<th></th>
+    		<th></th>
+  		</tr>
+
+		<% @pessoa_recebers.each do |pessoa_receber| %>
+  			<tr>
+    			<td><%= pessoa_receber.nome %></td>
+    			<td><%= pessoa_receber.email %></td>
+    			<td><%= pessoa_receber.tel %></td>
+    			<td><%= link_to 'Mostrar', pessoa_receber, :class => "btn" %></td>
+    			<td><%= link_to 'Editar', edit_pessoa_receber_path(pessoa_receber), :class => "btn" %></td>
+    			<td><%= link_to 'Deletar', pessoa_receber, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn" %></td>
+  			</tr>
+		<% end %>
+	</table>
+
+	<br />
+
+	<%= link_to 'Nova Pessoa à receber', new_pessoa_receber_path, :class => "btn" %>
+</div>

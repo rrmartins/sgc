@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @conta_receber.nome %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @conta_receber.descricao %>
+</p>
+
+<p>
+  <b>Data vencimento:</b>
+  <%= @conta_receber.data_vencimento %>
+</p>
+
+<p>
+  <b>Pessoa receber:</b>
+  <%= @conta_receber.pessoa_receber %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%= @conta_receber.valor %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @conta_receber.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_conta_receber_path(@conta_receber) %> |
+<%= link_to 'Back', conta_recebers_path %>

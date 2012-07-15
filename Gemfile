@@ -31,6 +31,8 @@ gem 'devise'
 
 gem 'pry'
 
+gem "test_notifier", "~> 1.0", :require => "test_notifier/runner/rspec" 
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
