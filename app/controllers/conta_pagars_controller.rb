@@ -3,15 +3,14 @@ class ContaPagarsController < ApplicationController
   # GET /conta_pagars.json
   def index
     @conta_pagars = ContaPagar.find(:all, :conditions => " user_id = #{current_user.id} ")
-    p @conta_pagars
     respond_to do |format|
       format.html # ex.html.erb
       format.json { render :json => @conta_pagars }
     end
   end
 
-  # GET /conta_pagars/1
   # GET /conta_pagars/1.json
+  # GET /conta_pagars/1
   def show
     @conta_pagar = ContaPagar.find(params[:id])
 

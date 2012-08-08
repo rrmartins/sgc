@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ContaReceber < ActiveRecord::Base
   belongs_to :pessoa_receber
   belongs_to :user
@@ -5,14 +6,18 @@ class ContaReceber < ActiveRecord::Base
 
   validates_presence_of :nome, :descricao, :valor
 
-  validate :data_venc
+  validate :data_vencimento?
 
-  def data_venc
-  	if self.data_vencimento < Date.today.to_date
-			errors.add(:data_vencimento, " näo pode ser menor que hoje.")
-      return false
+  def data_vencimento?
+    unless self.data_vencimento.nil?
+      if self.data_vencimento.to_date < DateTime.now.to_date
+  		  errors.add(:data_vencimento, " näo pode ser menor que hoje.")
+        return false
+      else
+    	  return true
+      end
     else
-    	return true
+  	  return false
     end
   end
 end

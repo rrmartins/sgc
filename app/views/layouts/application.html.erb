@@ -46,82 +46,89 @@
           </ul>
         </div><!--/.nav-collapse -->
         
-        <div id="fb-root" style="width: 61%; margin-top: 8px; height: 0.7px;">
-          <div class="fb-like" data-href="http://192.168.0.5:3000" data-send="true" data-layout="button_count" data-width="80" data-show-faces="true" data-colorscheme="dark"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=342319852509582";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-      </div>
-        <% if current_user %>
-          <div class="pull-right" style="color: white;">
-            Logado como <strong><%= current_user.name %></strong>!
-            <%= link_to "Sair", signout_path, :id => "sign_out", :style => "color: white;", :class => "btn btn-primary btn-large" %>
-          </div>
-        <% else %>
-          <%= link_to "Faça login com Facebook", "/auth/facebook", :id => "sign_in", :style => "color: white;", :class => "btn btn-primary btn-large pull-right"  %>
-        <% end %>
+		<% if user_signed_in? %>
+			<div id="login" class="logado"> 
+		    	<span id="usuario">Olá, <%= current_user.name %>.</span> 
+		      	<a class="btnbg3 btn_edit" href="<%=edit_cliente_registration_path%>" title="Editar">
+					<span>Minha Conta</span>
+				</a>
+				<a class="btnbg3 btn_sair" href="/logout" title="Sair">
+					<span>Sair</span>
+				</a>
+			</div>
+	    <% else %>  
+	    	<div id="login">
+		      <form name="top-login" id="top-login" method="post" action="./">
+		        <a href="#login_form" class="btn_entrar">Entrar</a>
+		        <a href="<%= new_user_registration_path %>" class="btn_criar">Criar Conta</a>
+		      </form>
+		    </div>
+		<% end %>
         
       </div>
     </div>
   </div>
 
-  <div class="container">
+  	<div class="container">
+	  <% if user_signed_in? %>
+	    <div class="row">
+	      <div class="span4" style="width:19%">
+	        <h2>Contas a Pagar</h2>
+	        <p>
+	          Consulte/Cadastre/Edite/Apague suas Contas pendentes!
+	        </p>
+	        <p>
+	          <%= link_to "Ver Detalhes >>", conta_pagars_path, :class => "btn" %>
+	        </p>
+	      </div>
 
-    <div class="row">
-      <div class="span4" style="width:19%">
-        <h2>Contas a Pagar</h2>
-        <p>
-          Consulte/Cadastre/Edite/Apague suas Contas pendentes!
-        </p>
-        <p>
-          <%= link_to "Ver Detalhes >>", conta_pagars_path, :class => "btn" %>
-        </p>
-      </div>
+	      <div class="span4" style="width:22%">
+	        <h2>Pessoas a Pagar</h2>
+	        <p>
+	          Consulte/Cadastre/Edite/Apague Pessoas que precisa pagar!
+	        </p>
+	        <p>
+	          <%= link_to "Ver Detalhes >>", pessoa_pagars_path, :class => "btn" %>
+	        </p>
+	      </div>
 
-      <div class="span4" style="width:22%">
-        <h2>Pessoas a Pagar</h2>
-        <p>
-          Consulte/Cadastre/Edite/Apague Pessoas que precisa pagar!
-        </p>
-        <p>
-          <%= link_to "Ver Detalhes >>", pessoa_pagars_path, :class => "btn" %>
-        </p>
-      </div>
+	      <div class="span4" style="width:22%">
+	        <h2>Contas a Receber</h2>
+	        <p>
+	          Consulte/Cadastre/Edite/Apague suas Contas a Receber
+	        </p>
+	        <p>
+	          <%= link_to "Ver Detalhes >>", conta_recebers_path, :class => "btn" %>
+	        </p>
+	      </div>
 
-      <div class="span4" style="width:22%">
-        <h2>Contas a Receber</h2>
-        <p>
-          Consulte/Cadastre/Edite/Apague suas Contas a Receber
-        </p>
-        <p>
-          <%= link_to "Ver Detalhes >>", conta_recebers_path, :class => "btn" %>
-        </p>
-      </div>
-
-      <div class="span4" style="width:24%">
-        <h2>Pessoas a Receber</h2>
-        <p>
-          Consulte/Cadastre/Edite/Apague Pessoas que precisa receber!
-        </p>
-        <p>
-          <%= link_to "Ver Detalhes >>", pessoa_recebers_path, :class => "btn" %>
-        </p>
-      </div>
-    </div>
+	      <div class="span4" style="width:24%">
+	        <h2>Pessoas a Receber</h2>
+	        <p>
+	          Consulte/Cadastre/Edite/Apague Pessoas que precisa receber!
+	        </p>
+	        <p>
+	          <%= link_to "Ver Detalhes >>", pessoa_recebers_path, :class => "btn" %>
+	        </p>
+	      </div>
+	    </div>
+	  <% end %>
+		<% if !notice.nil? %>
+			<p class="notice"><%= notice %></p>
+		<% end %>
+		<% if !alert.nil? %>
+	    	<p class="alert"> <%= alert %> </p>
+		<% end %>
 
     
-      <%= yield %>
+	      <%= yield %>
     
 
-    <footer class="footer">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; Company 2012</p>
-    </footer>
-  </div>
+	    <footer class="footer">
+	        <p class="pull-right"><a href="#">Back to top</a></p>
+	        <p>&copy; Company 2012</p>
+	    </footer>
+	  </div>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "bootstrap" %>
   <%= javascript_include_tag "bootstrap.min" %> 

@@ -1,5 +1,7 @@
 Sgc::Application.routes.draw do
 
+  devise_for :users
+
   resources :conta_recebers
 
   resources :pessoa_recebers

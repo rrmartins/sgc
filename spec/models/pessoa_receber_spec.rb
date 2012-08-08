@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PessoaPagar do
+describe PessoaReceber do
   context "attributes" do
     it { should respond_to(:user_id) }
     it { should respond_to(:nome) }    

@@ -11,6 +11,8 @@ gem 'json'
 
 gem 'thin'
 
+gem 'simplecov', :require => false, :group => :test
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -18,6 +20,20 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
 end
+
+group :development, :test do
+  gem 'spork'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+end
+
+gem "devise"
+
+gem 'ZenTest'
+gem 'autotest-growl'
+gem 'notifier'
 
 gem 'jquery-rails'
 
@@ -32,17 +48,3 @@ gem 'devise'
 gem 'pry'
 
 gem "test_notifier", "~> 1.0", :require => "test_notifier/runner/rspec" 
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
-
-
