@@ -10,6 +10,8 @@ require File.expand_path("../../config/environment", __FILE__)
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/*/.rb")].each {|f| require f}
 
+require 'support/controller_macros'
+
 Spork.prefork do
   ENV["RAILS_ENV"] ||= "test"
   require File.expand_path("../../config/environment", __FILE__)
@@ -22,6 +24,8 @@ Spork.prefork do
     config.formatter = 'documentation'
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.include FactoryGirl::Syntax::Methods
+    config.include Devise::TestHelpers, :type => :controller
+    config.extend ControllerMacros, :type => :controller
   end
 
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ContaPagarsController do
-  
+  login_user
   before (:each) do
     @user = FactoryGirl.create(:user)
     sign_in @user

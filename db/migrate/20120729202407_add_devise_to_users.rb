@@ -35,7 +35,6 @@ class AddDeviseToUsers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
-
       # Uncomment below if timestamps were not included in your original model.
       t.timestamps
     end
